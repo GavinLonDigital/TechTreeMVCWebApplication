@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TechTreeMVCWebApplication.Entities.Category>
+﻿@model IEnumerable<TechTreeMVCWebApplication.Entities.CategoryItem>
 
 @{
     ViewData["Title"] = "Index";
@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" asp-route-categoryId ="@ViewBag.CategoryId">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -19,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ThumbnailImagePath)
+                @Html.DisplayNameFor(model => model.DateTimeItemReleased)
             </th>
             <th></th>
         </tr>
@@ -34,13 +34,12 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ThumbnailImagePath)
+                @Html.DisplayFor(modelItem => item.DateTimeItemReleased)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
-                <a asp-controller="CategoryItem" asp-action="Index" asp-route-categoryId="@item.Id">Update Items</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }
