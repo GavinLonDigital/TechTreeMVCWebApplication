@@ -11,6 +11,7 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
+            <input type="hidden" asp-for="CategoryId" value="@Model.CategoryId" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
@@ -23,14 +24,12 @@
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
-                <span asp-validation-for="CategoryId" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <label asp-for="MediaTypeId" class="control-label"></label>
-                <select asp-for="MediaTypeId" class="form-control" asp-items="ViewBag.MediaTypeId"></select>
+                <select asp-for="MediaTypeId" class="form-control" asp-items="@Model.MediaTypes">
+                    <option value="">--Please Select a Media Type--</option>
+                </select>
                 <span asp-validation-for="MediaTypeId" class="text-danger"></span>
             </div>
             <div class="form-group">
