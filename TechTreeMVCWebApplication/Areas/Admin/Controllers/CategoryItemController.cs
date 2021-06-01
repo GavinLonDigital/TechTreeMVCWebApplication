@@ -26,6 +26,10 @@ namespace TechTreeMVCWebApplication.Areas.Admin.Controllers
         {
 
             List<CategoryItem> list = await (from catItem in _context.CategoryItem
+                                             join contentItem in _context.Content
+                                             on catItem.Id equals contentItem.CategoryItem.Id
+                                             into gj
+                                             from subContent in gj.DefaultIfEmpty()
                                              where catItem.CategoryId == categoryId
                                              select new CategoryItem
                                              { 
@@ -34,7 +38,9 @@ namespace TechTreeMVCWebApplication.Areas.Admin.Controllers
                                                 Description = catItem.Description,
                                                 DateTimeItemReleased = catItem.DateTimeItemReleased,
                                                 MediaTypeId = catItem.MediaTypeId,
-                                                CategoryId = categoryId
+                                                CategoryId = categoryId,
+                                                ContentId = (subContent != null) ? subContent.Id : 0
+
                                              }).ToListAsync();
 
 
