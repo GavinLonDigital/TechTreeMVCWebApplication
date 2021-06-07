@@ -9,7 +9,7 @@
 <h4>Content</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-10">
         <form asp-action="Create">
             <input type="hidden" asp-for="CategoryId">
             <input type="hidden" asp-for="CatItemId">
@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="HTMLContent" class="control-label"></label>
-                <input asp-for="HTMLContent" class="form-control" />
+                <textarea asp-for="HTMLContent" rows="10" class="form-control"></textarea>
                 <span asp-validation-for="HTMLContent" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -37,7 +37,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-controller="CategoryItem" asp-action="Index" asp-route-categoryId="@Model.CategoryId">Back to List</a>
 </div>
 
 @section Scripts {
