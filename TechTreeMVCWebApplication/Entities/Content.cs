@@ -20,5 +20,17 @@ namespace TechTreeMVCWebApplication.Entities
         public string VideoLink { get; set; }
 
         public CategoryItem CategoryItem { get; set; }
+
+        [NotMapped]
+        public int CatItemId { get; set; }
+        //Note: This property cannot be 
+        //named CategoryItemId because this would
+        //interfere with future migrations
+        //It has been named like this
+        //so as not to conflict with EF Core naming conventions
+
+        [NotMapped]
+        public int CategoryId { get; set; }
+        
     }
 }
