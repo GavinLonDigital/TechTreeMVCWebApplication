@@ -12,12 +12,13 @@ namespace TechTreeMVCWebApplication.Entities
         public int Id { get; set; }
         
         [Required]
-        [StringLength(200,MinimumLength =2)]
+        [StringLength(200, MinimumLength = 2)]
         public string Title { get; set; }
 
         public string Description { get; set; }
         
         [Required]
+        [Display(Name = "Thumbnail Image Path")]
         public string ThumbnailImagePath { get; set; }
 
         [ForeignKey("CategoryId")]

@@ -29,6 +29,7 @@
                 <select asp-for="MediaTypeId" class="form-control" asp-items="@Model.MediaTypes">
                     <option value="">--Please Select a Media Type--</option>
                 </select>
+                <span asp-validation-for="MediaTypeId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DateTimeItemReleased" class="control-label"></label>
