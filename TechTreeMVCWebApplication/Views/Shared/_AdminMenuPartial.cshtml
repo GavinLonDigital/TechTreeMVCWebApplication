@@ -1,4 +1,11 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+@using TechTreeMVCWebApplication.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User) && await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "admin"))
+{
 <li class="nav-item dropdown show">
     <a class="dropdown-toggle nav-link text-dark" href="#" data-toggle="dropdown">Admin</a>
     <div class="dropdown-menu">
@@ -8,3 +15,4 @@
         <a class="dropdown-item" asp-area="Admin" asp-controller="MediaType" asp-action="Index">Media Types</a>
     </div>
 </li>
+}
