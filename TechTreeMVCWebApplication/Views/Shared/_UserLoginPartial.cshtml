@@ -1,0 +1,45 @@
+﻿@model TechTreeMVCWebApplication.Models.LoginModel 
+
+   <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="UserLoginForm" asp-controller="UserAuth" asp-action="Login">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="LoginInValid">
+                    <div class="form-group row">
+                        <label asp-for="Email" class="col-md-4 col-form-label"></label>
+                        <div class="col-md-8">
+                            <input asp-for="Email" placeholder="Email Address" class="form-control">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Password" class="col-md-4 col-form-label"></label>
+                        <div class="col-md-8">
+                            <input asp-for="Password" placeholder="Password" class="form-control">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group-row">
+                        <div class="col-md-8 offset-md-4">
+                            <div class="form-check">
+                                <input asp-for="RememberMe" class="form-check-input">
+                                <label asp-for="RememberMe" class="form-check-label"></label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="login" name="login" class="btn btn-primary">Login</button>
+            </div>
+        </div>
+    </div>
+
