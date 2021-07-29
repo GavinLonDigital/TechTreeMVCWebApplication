@@ -1,9 +1,28 @@
 ﻿$(function () {
+
+    $("#UserRegistrationModal input[name = 'AcceptUserAgreement']").click(onAcceptUserAgreementClick);
+
+    $("#UserRegistrationModal button[name = 'register']").prop("disabled", true);
+
+    function onAcceptUserAgreementClick() {
+        if ($(this).is(":checked")) {
+            $("#UserRegistrationModal button[name = 'register']").prop("disabled", false);
+        }
+        else {
+            $("#UserRegistrationModal button[name = 'register']").prop("disabled", true);
+
+        }
+
+    }
+
+
     var registerUserButton = $("#UserRegistrationModal button[name = 'register']").click(onUserRegisterClick);
+
+
 
     function onUserRegisterClick()
     {
-        var url = "/UserAuth/RegisterUser";
+        var url = "UserAuth/RegisterUser";
 
         var antiForgeryToken = $("#UserRegistrationModal input[name='__RequestVerificationToken']").val();
         var email = $("#UserRegistrationModal input[name='Email']").val();
@@ -17,7 +36,7 @@
         var phoneNumber = $("#UserRegistrationModal input[name='PhoneNumber']").val();
 
         var user = {
-            __RequestAntiForgeryToken: antiForgeryToken,
+            __RequestVerificationToken: antiForgeryToken,
             Email: email,
             Password: password,
             ConfirmPassword: confirmPassword,
