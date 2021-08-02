@@ -32,9 +32,10 @@ else
 
 @section Scripts
 {
-    <script src="~/js/UserRegistration.js"></script>
-    <script src="~/js/UserLogin.js"></script>
+    @{
+        await Html.RenderPartialAsync("_AuthScriptsPartial");
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
 
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
 
 }

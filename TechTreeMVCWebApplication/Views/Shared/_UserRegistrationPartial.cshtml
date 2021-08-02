@@ -9,6 +9,8 @@
                 </button>
             </div>
             <div class="modal-body">
+                <div id="alert_placeholder_register">
+                </div>
                 <form id="UserRegistrationForm" name="UserRegistrationForm" asp-controller="UserAuth" asp-action="RegisterUser">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="RegistrationInValid">
@@ -87,7 +89,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="register" name="register" type="button" class="btn btn-primary">Save changes</button>
+                <button id="register" name="register" type="button" class="btn btn-primary">Register</button>
             </div>
         </div>
     </div>

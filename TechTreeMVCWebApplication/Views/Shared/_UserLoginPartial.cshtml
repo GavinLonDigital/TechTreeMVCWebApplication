@@ -9,6 +9,8 @@
                 </button>
             </div>
             <div class="modal-body">
+                <div id="alert_placeholder_login">
+                </div>
                 <form id="UserLoginForm" asp-controller="UserAuth" asp-action="Login">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="LoginInValid">
