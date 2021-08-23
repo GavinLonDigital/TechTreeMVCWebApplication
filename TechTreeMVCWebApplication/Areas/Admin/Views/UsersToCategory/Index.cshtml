@@ -2,6 +2,10 @@
 @using TechTreeMVCWebApplication.Extensions
 @using TechTreeMVCWebApplication.Areas.Admin.Models
 
+
+<h3 class="mt-4">Add Members to Category</h3>
+<hr />
+
 <form id="MembersToCategory" asp-action="Index">
     <div class="row">
         <div class="col-md-4">
@@ -22,7 +26,7 @@
             <h4>Members</h4>
             <div class="form-group">
                 <div id="UsersCheckList">
-                    <partial name="_UsersListViewPartial" model="new UsersCategoryListModel {CategoryId=0,Users=null,UsersSelected=null } "/>
+                    <partial name="_UsersListViewPartial" model="new UsersCategoryListModel {CategoryId=0,Users=null,UsersSelected=null } " />
                 </div>
             </div>
         </div>
@@ -41,7 +45,18 @@
         </div>
     </div>
 </form>
-@section Scripts{ 
+<div class="progress collapse">
+    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info text-white" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%; height:100%;">
+        <span style="font-size: 2rem;">Saving Data...</span>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="alert alert-success alert-dismissible collapse text-center" style="font-size: 2rem;" role="alert">
+        The Data has been saved successfully!!
+    </div>
+</div>
+
+@section Scripts{
     <script src="~/js/UsersToCategory.js"></script>
     <script src="~/js/BootstrapAlerts.js"></script>
 }
