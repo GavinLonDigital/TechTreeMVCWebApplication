@@ -1,10 +1,15 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+.main-default
+{
+    margin-top:80px;
+}
+
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 /* Provide sufficient contrast against white background */
@@ -28,6 +33,7 @@ a {
 -------------------------------------------------- */
 html {
   font-size: 14px;
+
 }
 @media (min-width: 768px) {
   html {
@@ -91,4 +97,73 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
+}
+
+.hero{
+    position:relative;
+}
+
+.hero-heading{
+    position:absolute;
+    inset: 0;
+    margin: auto;
+    text-align: center;
+    width: 180px;
+    height: 80px;
+    background-color: rgba(0,0,0, 0.3);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.hero-heading-text {
+    color: white;
+    font-size:1rem;
+}
+.hero-register-button{
+    font-size: .8rem;
+    cursor:pointer;
+}
+.section-divider{
+    height:1px;
+    background-color: rgb(82,164,185);
+}
+.section{
+    margin-bottom:80px;
+}
+.section-header {
+    padding-top: 80px;
+    color: rgb(82,164,185);
+}
+
+a:hover .card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+@media screen and (min-width:700px) {
+    .hero-heading {
+        width: 350px;
+        height: 180px;
+    }
+
+    .hero-heading-text {
+        font-size: 2rem;
+    }
+
+    .hero-register-button {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (min-width:800px){
+    .hero-heading{
+        width: 600px;
+        height: 200px;
+        padding: 20px;
+    }
+
+
 }

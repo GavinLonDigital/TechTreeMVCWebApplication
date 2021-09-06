@@ -1,0 +1,98 @@
+﻿@using TechTreeMVCWebApplication.Entities
+@model IEnumerable<Category>
+<!--Hero Section-->
+<div class="hero section">
+    <img class="img-fluid" src="~/Images/HeroImage.jpeg">
+    <div class="hero-heading">
+        <h2 class="hero-heading-text">Learn Software Engineering at <strong>TechTree</strong></h2>
+        <a id="HeroRegisterButton" class="btn btn-outline-info btn-lg text-light hero-register-button">Register</a>
+    </div>
+</div>
+
+<hr class="section-divider" />
+
+<!--Courses Section-->
+<div id="Courses" class="courses section">
+    <h3 class="section-header">Courses</h3>
+    @{
+        var count = Model.Count() / 4;
+        var catList = new List<Category>();
+
+    }
+    @for (int i = 0; i <= count; i++)
+    {
+        catList = Model.Skip(i * 4).Take(4).ToList();
+
+        <div class="row mt-3">
+            @foreach (Category item in catList)
+            {
+                <div class="col-md-3">
+                    <a href="#" class="text-dark">
+                        <div class="card">
+                            <img class="img-thumbnail" src="@item.ThumbnailImagePath" alt="@item.Title">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Title</h5>
+                                <p class="card-text">@item.Description</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<hr class="section-divider" />
+
+<!--Contact Us Section-->
+
+<div id="ContactUs" class="contact-us section">
+    <h3 class="col-md-5 section-header">Contact Us</h3>
+    <div class="col-md-5">
+        Email us any questions or inquiries or call 518-387-9999. We would be happy to answer your questions and set up a meeting with you.
+    </div>
+    <div class="mt-3">
+        <div class="col-md-8">
+            <form>
+                <input type="hidden" />
+                <div class="form-group">
+                    <label for="Name" class="control-label">Name: </label>
+                    <input id="Name" class="form-control" />
+
+                </div>
+                <div class="form-group">
+                    <label for="Email" class="control-label">Email: </label>
+                    <input id="Email" class="form-control" />
+
+                </div>
+                <div class="form-group">
+                    <label for="Subject" class="control-label">Subject: </label>
+                    <input id="Subject" class="form-control" />
+
+                </div>
+                <div class="form-group">
+                    <label for="MessageBody" class="control-label">Message: </label>
+                    <textarea id="Messagebody" cols="30" rows="10" class="form-control"></textarea>
+
+                </div>
+                <div class="form-group d-flex">
+                    <input type="button" value="Send Email" class="btn btn-outline-info ml-auto" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<hr class="section-divider" />
+
+<!--About Us Section-->
+
+<div id="AboutUs" class="about-us section">
+    <h3 class="col-md-5 section-header">About Us</h3>
+    <div class="mt-3 mb-5">
+        <div class="col-md-5">
+            <p>
+                <strong>TechTree</strong> provides articles and courses on programming topics. We started in 1998 and continue to provide high quality Tech content to our members.
+            </p>
+        </div>
+    </div>
+</div>
