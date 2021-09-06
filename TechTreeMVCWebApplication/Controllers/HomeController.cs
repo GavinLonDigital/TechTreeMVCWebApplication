@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using TechTreeMVCWebApplication.Data;
+using TechTreeMVCWebApplication.Entities;
 using TechTreeMVCWebApplication.Models;
 
 namespace TechTreeMVCWebApplication.Controllers
@@ -48,8 +49,33 @@ namespace TechTreeMVCWebApplication.Controllers
                 }
 
             }
+            else
+            {
+                var categories = await GetCategoriesThatHaveContent();
+
+                categoryDetailsModel.Categories = categories;
+
+            }
 
             return View(categoryDetailsModel);
+        }
+
+        private async Task<List<Category>> GetCategoriesThatHaveContent()
+        {
+            var categoriesWithContent = await (from category in _context.Category
+                                               join categoryItem in _context.CategoryItem
+                                               on category.Id equals categoryItem.CategoryId
+                                               join content in _context.Content
+                                               on categoryItem.Id equals content.CategoryItem.Id
+                                               select new Category
+                                               {
+                                                   Id = category.Id,
+                                                   Title = category.Title,
+                                                   Description = category.Description,
+                                                   ThumbnailImagePath = category.ThumbnailImagePath
+                                               }).Distinct().ToListAsync();
+            return categoriesWithContent;
+        
         }
 
         private IEnumerable<GroupedCategoryItemsByCategoryModel> GetGroupedCategoryItemsByCategory(IEnumerable<CategoryItemDetailsModel> categoryItemDetailsModels)
