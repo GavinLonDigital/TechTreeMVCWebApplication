@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - TechTreeMVCWebApplication</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/fontawesome/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -19,7 +20,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-home mr-1 text-info"></i>Home</a>
                         </li>
 
                         <partial name="_AdminMenuPartial" />

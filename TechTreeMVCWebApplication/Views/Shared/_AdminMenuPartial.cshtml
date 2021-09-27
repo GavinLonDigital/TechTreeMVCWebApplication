@@ -9,22 +9,22 @@
     <li class="nav-item dropdown show">
         <a class="dropdown-toggle nav-link text-dark" href="#" data-toggle="dropdown">Admin</a>
         <div class="dropdown-menu">
-            <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Categories</a>
-            <a class="dropdown-item" asp-area="Admin" asp-controller="UsersToCategory" asp-action="Index">Users to Category</a>
+            <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index"><i class="fas fa-box mr-2"></i>Categories</a>
+            <a class="dropdown-item" asp-area="Admin" asp-controller="UsersToCategory" asp-action="Index"><i class="fas fa-users mr-2"></i>Users to Category</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" asp-area="Admin" asp-controller="MediaType" asp-action="Index">Media Types</a>
+            <a class="dropdown-item" asp-area="Admin" asp-controller="MediaType" asp-action="Index"><i class="fas fa-file-video mr-2"></i>Media Types</a>
         </div>
     </li>
 }
 else if(!SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
-        <a class="nav-link text-dark" href="#Courses">Courses</a>
+        <a class="nav-link text-dark" href="#Courses"><i class="fas fa-laptop-code mr-1 text-info"></i>Courses</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" href="#ContactUs">Contact Us</a>
+        <a class="nav-link text-dark" href="#ContactUs"><i class="fas fa-phone-alt mr-1 text-info"></i>Contact Us</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" href="#AboutUs">About Us</a>
+        <a class="nav-link text-dark" href="#AboutUs"><i class="fas fa-chalkboard-teacher mr-1 text-info"></i>About Us</a>
     </li>
 }
