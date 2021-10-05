@@ -1,0 +1,48 @@
+﻿@model TechTreeMVCWebApplication.Models.CategoriesToUserModel
+
+<div class="row mt-5">
+    <div class="col-md-10">
+        <h2>Choose your Courses</h2>
+    </div>
+</div>
+<form asp-action="Index">
+    <div class="row mt-3">
+        <div class="col-md-10">
+            <table class="table table-bordered">
+                @if(Model != null)
+                {
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var category in Model.Categories)
+                        {
+                            <tr>
+                                <td style="text-align:center; width:150px;">
+                                    @if (Model.CategoriesSelected != null && Model.CategoriesSelected.Contains(category, new CompareCategories()))
+                                    {
+                                        <input type="checkbox" class="form-check-input" id="CategoriesSelected" name="CategoriesSelected" checked value="@category.Id">
+                                    }
+                                    else
+                                    {
+                                        <input type="checkbox" class="form-check-input" id="CategoriesSelected" name="CategoriesSelected" value="@category.Id">
+
+                                    }
+                                </td>
+                                <td>@category.Title</td>
+                            </tr>
+                        }
+                    </tbody>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 d-flex">
+            <input type="submit" value="Save" class="btn btn-outline-info ml-auto" />
+        </div>
+    </div>
+</form>
