@@ -6,7 +6,7 @@
         @foreach (Category item in Model)
         {
             <div class="col-md-3 mt-3">
-                <a href="#" class="text-dark">
+                <a href="#" class="RegisterLink text-dark" data-categoryId="@item.Id">
                     <div class="card">
                         <img class="img-thumbnail" src="@item.ThumbnailImagePath" alt="@item.Title">
                         <div class="card-body">

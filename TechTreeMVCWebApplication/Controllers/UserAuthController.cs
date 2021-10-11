@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TechTreeMVCWebApplication.Data;
+using TechTreeMVCWebApplication.Entities;
 using TechTreeMVCWebApplication.Models;
 
 namespace TechTreeMVCWebApplication.Controllers
@@ -101,6 +102,12 @@ namespace TechTreeMVCWebApplication.Controllers
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
 
+                    if (registrationModel.CategoryId != 0)
+                    {
+                        await AddCategoryToUser(user.Id, registrationModel.CategoryId);
+
+                    }
+
                     return PartialView("_UserRegistrationPartial", registrationModel);
                 }
 
@@ -129,6 +136,13 @@ namespace TechTreeMVCWebApplication.Controllers
                 ModelState.AddModelError(string.Empty, error.Description);
         }
 
-
+        private async Task AddCategoryToUser(string userId, int categoryId)
+        {
+            UserCategory userCategory = new UserCategory();
+            userCategory.CategoryId = categoryId;
+            userCategory.UserId = userId;
+            _context.UserCategory.Add(userCategory);
+            await _context.SaveChangesAsync();
+        }
     }
 }
